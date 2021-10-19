@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:5.0
+    container_name: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d:rw
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "jumping"
+      MONGO_INITDB_ROOT_PASSWORD: "jumping123"
